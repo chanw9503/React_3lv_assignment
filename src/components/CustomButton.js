@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
 
 export const FONT_RED = 'rgb(214, 48, 49)';
 export const BK_RED = 'rgb(250, 177, 160)';
@@ -16,7 +16,7 @@ const INIT_FORMAT = {
 export const LARGE = {
   color: 'black',
   background: 'white',
-  width: '150px',
+  width: '170px',
   height: '40px',
   border: '2px solid ' + BK_GREEN,
 };
@@ -45,21 +45,41 @@ const Button = styled.button`
 
   border-radius: 5px;
   border: ${(props) => props.border};
-
   color: ${(props) => props.color};
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 600;
   padding: 6px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+
+  ${(props) =>
+    props.isClick &&
+    css`
+      filter: brightness(70%);
+    `}
 `;
 
-function Custombutton({ props = INIT_FORMAT, children }) {
+function Custombutton({ style = INIT_FORMAT, event, children }) {
+  const [clicked, setClicked] = useState(false);
+
+  const onToggle = () => {
+    setClicked(!clicked);
+  };
+
   return (
     <Button
-      width={props.width}
-      height={props.height}
-      border={props.border}
-      color={props.color}
-      background={props.background}
+      onMouseDown={onToggle}
+      onMouseUp={onToggle}
+      onClick={() => event()}
+      width={style.width}
+      height={style.height}
+      border={style.border}
+      color={style.color}
+      background={style.background}
+      isClick={clicked}
     >
       {children}
     </Button>

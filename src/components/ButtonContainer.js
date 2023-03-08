@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import { BK_GREEN, BK_RED, FONT_RED, LARGE, MEDIUM, SMALL } from './CustomButton';
+import { FiChevronRight } from 'react-icons/fi';
+import { VscGithubInverted } from 'react-icons/vsc';
 import Custombutton from './CustomButton';
 
 const Container = styled.div`
@@ -15,21 +17,33 @@ export const ButtonBlock = styled.div`
 `;
 
 function ButtonContainer() {
+  const onClickUpAlert = () => {
+    alert('버튼을 만들어 보세요');
+  };
+
+  const onClickPrompt = () => {
+    prompt('어렵나요?', '');
+  };
   return (
     <Container>
       <ButtonBlock>
-        <Custombutton props={LARGE}>Larger Primary button </Custombutton>
-        <Custombutton props={MEDIUM}>Medium</Custombutton>
-        <Custombutton props={SMALL}>Small</Custombutton>
+        <Custombutton event={onClickUpAlert} style={LARGE}>
+          Larger Primary button <FiChevronRight />
+        </Custombutton>
+        <Custombutton style={MEDIUM}>Medium</Custombutton>
+        <Custombutton style={SMALL}>Small</Custombutton>
       </ButtonBlock>
       <ButtonBlock>
-        <Custombutton props={{ ...LARGE, border: '2px solid ' + BK_RED }}>
-          Larger Primary button{' '}
+        <Custombutton
+          event={onClickPrompt}
+          style={{ ...LARGE, border: '2px solid ' + BK_RED }}
+        >
+          Larger Nagative Button <VscGithubInverted />
         </Custombutton>
-        <Custombutton props={{ ...MEDIUM, background: BK_RED, color: FONT_RED }}>
+        <Custombutton style={{ ...MEDIUM, background: BK_RED, color: FONT_RED }}>
           Medium
         </Custombutton>
-        <Custombutton props={{ ...SMALL, background: BK_RED, color: FONT_RED }}>
+        <Custombutton style={{ ...SMALL, background: BK_RED, color: FONT_RED }}>
           Small
         </Custombutton>
       </ButtonBlock>
