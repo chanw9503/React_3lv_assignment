@@ -6,6 +6,7 @@ import ModalContainer from './components/ModalContainer';
 import MyModal from './components/MyModal';
 import SelectContainer from './components/SelectContainer';
 import SelectContainer2 from './components/SelectContainer2';
+import SelectContainer3 from './components/SelectContainer3';
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +21,7 @@ function App() {
       <InputContainer />
       <h1>Modal</h1>
       <ModalContainer />
-      <SelectContainer2 />
+      <SelectContainer3 />
     </>
   );
 }

@@ -15,7 +15,14 @@ function SelectContainer2() {
     <>
       <SelectBlock>
         <h1>Select</h1>
-        <Select value={index} options={options} onChange={(e) => setIndex(e)} />
+        <SelectWrap>
+          <SelectBox>
+            <Select value={index} options={options} onChange={(e) => setIndex(e)} />
+          </SelectBox>
+          <SelectBox2>
+            <Select value={index} options={options} onChange={(e) => setIndex(e)} />
+          </SelectBox2>
+        </SelectWrap>
       </SelectBlock>
     </>
   );
@@ -25,6 +32,20 @@ const SelectBlock = styled.div`
   margin-top: 50px;
   border: 2px solid rgb(221, 221, 221);
   height: 200px;
+  overflow: hidden;
+`;
+
+const SelectWrap = styled.div`
+  display: flex;
+  gap: 10px;
+`;
+
+const SelectBox = styled.div`
+  width: 300px;
+`;
+
+const SelectBox2 = styled.div`
+  width: 300px;
 `;
 
 // const Select = styled.select`
