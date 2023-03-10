@@ -62,7 +62,7 @@ const Button = styled.button`
     `}
 `;
 
-function Custombutton({ style = INIT_FORMAT, event, children }) {
+function Custombutton({ cusStyle = INIT_FORMAT, event, children }) {
   const [clicked, setClicked] = useState(false);
 
   const onToggle = () => {
@@ -73,12 +73,12 @@ function Custombutton({ style = INIT_FORMAT, event, children }) {
     <Button
       onMouseDown={onToggle}
       onMouseUp={onToggle}
-      onClick={() => event()}
-      width={style.width}
-      height={style.height}
-      border={style.border}
-      color={style.color}
-      background={style.background}
+      onClick={event}
+      width={cusStyle.width}
+      height={cusStyle.height}
+      border={cusStyle.border}
+      color={cusStyle.color}
+      background={cusStyle.background}
       isClick={clicked}
     >
       {children}

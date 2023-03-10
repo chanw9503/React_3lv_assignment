@@ -10,38 +10,40 @@ const ModalBlock = styled.div`
 `;
 
 function ModalContainer() {
-  const [isOpen, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [Open, setOpen] = useState(false);
 
-  const handleModalSubmit = () => {
+  const handleModalCancel2 = () => {
     //모달1 비즈니스 로직
     setOpen(false);
   };
 
   const handleModalCancel = () => {
-    setOpen(false);
+    console.log('close');
+    setIsOpen(false);
   };
 
   const onModalOpen = () => {
-    console.log('test');
+    setIsOpen(true);
+  };
+
+  const onOpen = () => {
+    console.log('true');
     setOpen(true);
   };
   return (
     <ModalBlock>
-      <Custombutton event={onModalOpen} style={SMALL}>
-        open modal
+      <Custombutton event={onModalOpen} cusStyle={SMALL}>
+        open Modal
       </Custombutton>
-      <MyModal
-        isOpen={isOpen}
-        onSubmit={handleModalSubmit}
-        onCancel={handleModalCancel}
-      />
+      {isOpen && <MyModal onClose={handleModalCancel} />}
       <Custombutton
-        onClick={onModalOpen}
-        style={{ ...LARGE, color: FONT_RED, border: '2px solid ' + BK_RED }}
+        event={onOpen}
+        cusStyle={{ ...LARGE, color: FONT_RED, border: '2px solid ' + BK_RED }}
       >
         open modal
       </Custombutton>
-      <MyModal />
+      {Open && <MyModal type={1} onClose={handleModalCancel2} />}
     </ModalBlock>
   );
 }

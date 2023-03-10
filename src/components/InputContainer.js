@@ -53,7 +53,7 @@ function InputContainer() {
           <Input value={price} type="text" onChange={changeEntredNum}></Input>
         </div>
         <div>
-          <Custombutton style={MEDIUM}>저장</Custombutton>
+          <Custombutton cusStyle={MEDIUM}>저장</Custombutton>
         </div>
       </InputFrom>
     </>

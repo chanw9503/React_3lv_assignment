@@ -27,23 +27,23 @@ function ButtonContainer() {
   return (
     <Container>
       <ButtonBlock>
-        <Custombutton event={onClickUpAlert} style={LARGE}>
+        <Custombutton event={onClickUpAlert} cusStyle={LARGE}>
           Larger Primary button <FiChevronRight />
         </Custombutton>
-        <Custombutton style={MEDIUM}>Medium</Custombutton>
-        <Custombutton style={SMALL}>Small</Custombutton>
+        <Custombutton cusStyle={MEDIUM}>Medium</Custombutton>
+        <Custombutton cusStyle={SMALL}>Small</Custombutton>
       </ButtonBlock>
       <ButtonBlock>
         <Custombutton
           event={onClickPrompt}
-          style={{ ...LARGE, border: '2px solid ' + BK_RED }}
+          cusStyle={{ ...LARGE, border: '2px solid ' + BK_RED }}
         >
           Larger Nagative Button <VscGithubInverted />
         </Custombutton>
-        <Custombutton style={{ ...MEDIUM, background: BK_RED, color: FONT_RED }}>
+        <Custombutton cusStyle={{ ...MEDIUM, background: BK_RED, color: FONT_RED }}>
           Medium
         </Custombutton>
-        <Custombutton style={{ ...SMALL, background: BK_RED, color: FONT_RED }}>
+        <Custombutton cusStyle={{ ...SMALL, background: BK_RED, color: FONT_RED }}>
           Small
         </Custombutton>
       </ButtonBlock>
